@@ -1,5 +1,6 @@
 package iii.org.tw.webview;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -78,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
             msg.setData(data);
             handler.sendMessage(msg);
             return "";
+        }
+        @JavascriptInterface
+        public void gotoPage2() {
+            Intent it = new Intent(MainActivity.this,Page2Activity.class);
+            startActivity(it);
         }
     }
 
