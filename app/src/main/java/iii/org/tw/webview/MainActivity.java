@@ -2,6 +2,7 @@ package iii.org.tw.webview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -37,5 +38,29 @@ public class MainActivity extends AppCompatActivity {
         WebViewClient client = new WebViewClient();
         webView.setWebViewClient(client);
         webView.loadUrl("http://www.iii.org.tw");
+    }
+
+    public void b1(View v) {
+        goPre();
+    }
+
+    public void b2(View v) {
+        goNext();
+    }
+
+    public void b3(View v) {
+        reLoad();
+    }
+
+    private void goPre() {
+        webView.goBack();
+    }
+
+    private void goNext() {
+        webView.goForward();
+    }
+
+    private void reLoad() {
+        webView.reload();
     }
 }
