@@ -3,6 +3,7 @@ package iii.org.tw.webview;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,12 +27,15 @@ public class MainActivity extends AppCompatActivity {
     private void initWebview() {
         //webView.loadUrl("http://www.iii.org.tw");
         //webView.loadUrl("file:///android_asset/Abner.html");
-        String data = "<html>\n" +
-                "<body>\n" +
-                "<h1>Hello Abner Company</h1>\n" +
-                "Hello Good Morning!\n" +
-                "</body>\n" +
-                "</html>";
-        webView.loadData(data,null,null);
+//        String data = "<html>\n" +
+//                "<body>\n" +
+//                "<h1>Hello Abner Company</h1>\n" +
+//                "Hello Good Morning!\n" +
+//                "</body>\n" +
+//                "</html>";
+//        webView.loadData(data,null,null);
+        WebViewClient client = new WebViewClient();
+        webView.setWebViewClient(client);
+        webView.loadUrl("http://www.iii.org.tw");
     }
 }
