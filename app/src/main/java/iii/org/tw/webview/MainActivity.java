@@ -1,6 +1,7 @@
 package iii.org.tw.webview;
 
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private WebView webView;
     private EditText inputName;
     private UIHandler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 //        webView = new WebView(this);
 //        webView.loadUrl("http://www.iii.org.tw");
 //        setContentView(webView);
+
+
 
         mesg = (TextView) findViewById(R.id.mesg);
         webView = (WebView) findViewById(R.id.webView);
