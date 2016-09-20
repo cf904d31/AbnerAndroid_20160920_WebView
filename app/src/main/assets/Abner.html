@@ -16,13 +16,18 @@
             here.innerHTML = "x + y = " + (x+y) ;
         }
 
+        function test4() {
+            Abner.showMesg("Abner :"  +  parseInt(Math.random()*49+1));
+        }
+
     </script>
 </head>
 <body>
 <h1>Hello Abner Company</h1>
 Hello Good Morning!
-<input type="button" value="Click me" onclick="test1()">
-<input type="button" value="test for test3" onclick="test3(3,4)">
+<input type="button" value="Click me" onclick="test1()"> <br>
+<input type="button" value="test for test3" onclick="test3(3,4)"> <br>
+<input type="button" value="test for test4" onclick="test4()"> <br>
 <div id="here"></div>
 <div id="here2"></div>
 </body>

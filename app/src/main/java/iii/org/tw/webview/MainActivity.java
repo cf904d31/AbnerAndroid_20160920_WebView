@@ -1,18 +1,24 @@
 package iii.org.tw.webview;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mesg;
     private WebView webView;
     private EditText inputName;
+    private UIHandler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         mesg = (TextView) findViewById(R.id.mesg);
         webView = (WebView) findViewById(R.id.webView);
         inputName = (EditText) findViewById(R.id.inputName);
+        handler = new UIHandler();
         initWebview();
 
     }
@@ -56,7 +63,30 @@ public class MainActivity extends AppCompatActivity {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         //-----
+        webView.addJavascriptInterface(new MyJSInterface() , "Abner");
         webView.loadUrl("file:///android_asset/Abner.html");
+    }
+
+    public class MyJSInterface {
+        @JavascriptInterface
+        public String showMesg(String webMesg) {
+            Log.d("Abner",webMesg);
+            Toast.makeText(MainActivity.this,webMesg,Toast.LENGTH_SHORT).show();
+            Message msg = new Message();
+            Bundle data = new Bundle();
+            data.putString("mesg",webMesg);
+            msg.setData(data);
+            handler.sendMessage(msg);
+            return "";
+        }
+    }
+
+    private class UIHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            mesg.setText(msg.getData().getString("mesg"));
+        }
     }
 
     public void b1(View v) {
