@@ -27,6 +27,10 @@
             android:onClick="b3"
             android:text="功能3"/>>
     </LinearLayout>
+    <EditText
+        android:id="@+id/inputName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/mesg"
         android:layout_width="wrap_content"
