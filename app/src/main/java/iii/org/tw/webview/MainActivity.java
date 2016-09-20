@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initWebview() {
-        webView.loadUrl("http://www.iii.org.tw");
+        //webView.loadUrl("http://www.iii.org.tw");
+        webView.loadUrl("file:///android_asset/Abner.html");
     }
 }
