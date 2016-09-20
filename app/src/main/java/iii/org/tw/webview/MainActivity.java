@@ -13,6 +13,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        webView = new WebView(this);
+//        webView.loadUrl("http://www.iii.org.tw");
+//        setContentView(webView);
+
         mesg = (TextView) findViewById(R.id.mesg);
         webView = (WebView) findViewById(R.id.webView);
         initWebview();
@@ -20,6 +24,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initWebview() {
-
+        webView.loadUrl("http://www.iii.org.tw");
     }
 }
